@@ -33,3 +33,9 @@ Le jeu de données contient deux jeux de données:
 12. `media_hashtag_numbers` - Total number of hashtags, given media has.
 13. `media_upload_times` - Media upload timastamps.
 14. `automated_behaviour` - True, if account is an automated account, False otherwise
+
+### Représentation des données
+1. Radar chart -> Fake account or not in function of user_media_count, user_follower_count, user_following_count, user_biography_length, username_length, username_digit_count -> Hajar
+2. Scatter Chart -> user_follower_count/user_following_count
+3. Pie Chart -> fake account -> Cathy
+4. Bar Chart -> user_is_private -> Maguette
