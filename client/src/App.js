@@ -4,6 +4,7 @@ import './App.css';
 import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
+import ScatterChart from './components/ScatterChart';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <button type="submit" class="btn btn-primary">Visualiser</button>
         </form>
       </div>
+      <ScatterChart />
       <BarChart />
       <LineChart />
       <PieChart />
