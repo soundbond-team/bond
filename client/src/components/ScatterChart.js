@@ -2,45 +2,52 @@ import React from "react";
 import { Scatter } from "react-chartjs-2";
 import axios from "axios";
 
-const PYTHON_SERVER_URL = "http://localhost:8000"
 
-export const getUsers = async () => {
-  try {
-    const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
-    return res.data;
-  }
-  catch (err) {
-    console.log(err);
-  }
-};
 
-export const data = () => {
-  const res = getUsers().then((res) => {
-    console.log(res)
-    const follower_following = []
-    res.forEach((user) => {
-      follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
-    })
-    return follower_following
-  })
-  return res
-};
+export const ScatterChart = () => {
+    const [dataset, setDataset] = React.useState([{}]);
 
-console.log(data())
+    const PYTHON_SERVER_URL = "http://localhost:8000"
 
-const dataset = [
-  {
-    label: "My First dataset",
-    backgroundColor: "rgb(255, 99, 132)",
-    borderColor: "rgb(255, 99, 132)",
-    data: data()
-    },
-]
+    React.useEffect(() => {
+      const getUsers = async () => {
+        try {
+          const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
+          return res.data;
+        }
+        catch (err) {
+          console.log(err);
+        }
+      };
 
-const ScatterChart = () => {
+      const data = () => {
+        getUsers().then((res) => {
+          const follower_following = [];
+          res.forEach((user) => {
+            follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
+          });
+          setDataset([
+            {
+              label: "Follower/Following",
+              backgroundColor: "rgb(255, 99, 132)",
+              borderColor: "rgb(255, 99, 132)",
+              data: follower_following,
+            },
+          ])
+        })
+      };
+      data();
+    }, []);
+
     return (
         <div>
-        <Scatter data={dataset} />
+        {dataset.length > 0 && (
+            <Scatter
+            data={{
+                datasets: dataset,
+            }}
+            />
+        )}
         </div>
     );
     }
