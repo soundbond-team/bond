@@ -5,7 +5,6 @@ import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
 import ScatterChart from './components/ScatterChart';
-import RadarChart from './components/RadarChart';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
       <BarChart />
       <LineChart />
       <PieChart />
-      <RadarChart />
     </div>
   );
 }
