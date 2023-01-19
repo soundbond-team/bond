@@ -25,9 +25,11 @@ Le jeu de données contient deux jeux de données:
 4. Bar Chart -> user_is_private -> Maguette
 
 ### start Server: 
-python main.py
+```python main.py```
+
+don't forget to install the requirements.txt: ```pip install -r requirements.txt```
 
 ### start Client  :
-npm start 
+```npm start```
 
 make sure that your server is running on port 3000
