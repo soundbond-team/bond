@@ -27,12 +27,14 @@ function App() {
         </div><br/>
         <button type="submit" class="btn btn-primary">Visualiser</button>
         </form>
+      </div >
+      <div id="graph">
+        <ScatterChart idUser={idUser}/>
+        <BarChart />
+        <LineChart />
+        <PieChart />
+        <RadarChart />
       </div>
-      <ScatterChart idUser={idUser}/>
-      <BarChart />
-      <LineChart />
-      <PieChart />
-      <RadarChart />
     </div>
   );
 }

@@ -44,3 +44,7 @@
 #data{
   text-align: center;
 }
+#graph{
+  margin-left: 250px;
+  width: 900px;
+}
