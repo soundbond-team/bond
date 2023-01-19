@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 
-export const ScatterChart = () => {
+export const ScatterChart = (idUser) => {
     const [dataset, setDataset] = React.useState([{}]);
 
     const PYTHON_SERVER_URL = "http://localhost:8000"
@@ -26,14 +26,26 @@ export const ScatterChart = () => {
           res.forEach((user) => {
             follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
           });
-          setDataset([
-            {
-              label: "Follower/Following",
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: "rgb(255, 99, 132)",
-              data: follower_following,
-            },
-          ])
+          if (idUser.idUser == null) {
+            setDataset([
+              {
+                label: "Follower/Following",
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
+                data: follower_following,
+              },
+            ])
+          }
+          else {
+            setDataset([
+              {
+                label: "Follower/Following",
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
+                data: follower_following,
+              },
+            ])
+          }
         })
       };
       data();
