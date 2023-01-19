@@ -23,3 +23,13 @@ Le jeu de données contient deux jeux de données:
 2. Scatter Chart -> user_follower_count/user_following_count
 3. Pie Chart -> fake account -> Cathy
 4. Bar Chart -> user_is_private -> Maguette
+
+### start Server: 
+```python main.py```
+
+don't forget to install the requirements.txt: ```pip install -r requirements.txt```
+
+### start Client  :
+```npm start```
+
+make sure that your server is running on port 3000

@@ -5,7 +5,8 @@ import axios from "axios";
 export const RadarChart = () => {
 
   const fakeAccountsDataset = [];
-
+  const realAccountsDataset = [];
+  
     const PYTHON_SERVER_URL = "http://localhost:8000"
 
     React.useEffect(() => {
@@ -105,7 +106,7 @@ export const RadarChart = () => {
           const rl_username_length=[];
           const rl_username_digit_count =[];
 
-          const realAccountsDataset = [];
+          
 
 
           res.forEach((user) => {
@@ -154,8 +155,7 @@ export const RadarChart = () => {
           realAccountsDataset.push(moy_fk_username_length);
           realAccountsDataset.push(moy_fk_username_digit_count);
 
-          console.log(realAccountsDataset);
-          console.log(fakeAccountsDataset);
+        
 
     
 
