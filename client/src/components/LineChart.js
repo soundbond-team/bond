@@ -48,7 +48,7 @@ const BarChart = () => {
     datasets: [
       {
         label: "Nombre total",
-        backgroundColor: ["#CD853F"],
+        backgroundColor: ["rgba(54, 162, 235, 0.2)"],
         borderColor: "rgb(255, 99, 132)",
         data: [followingCount, mediaCount, follwCount]
       },
