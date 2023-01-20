@@ -28,10 +28,14 @@ function App() {
         </form>
       </div >
       <div id="graph">
-        <ScatterChart idUser={idUser}/>
-        <BarChart />
-        <PieChart />
-        <RadarChart />
+        <div>
+          <div id="left"><ScatterChart idUser={idUser}/></div>
+          <div id="right"><BarChart /></div>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div>
+          <div id="left"><PieChart /></div>
+          <div id="right"><RadarChart /></div>
+        </div>
       </div>
     </div>
   );

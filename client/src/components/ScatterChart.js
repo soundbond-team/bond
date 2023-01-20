@@ -53,6 +53,7 @@ export const ScatterChart = (idUser) => {
 
     return (
         <div>
+         <h2>ScatterChart Chart</h2>
         {dataset.length > 0 && (
             <Scatter
             data={{

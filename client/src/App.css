@@ -48,3 +48,11 @@
   margin-left: 250px;
   width: 900px;
 }
+#left{
+  float: left;
+  width: 400px;
+}
+#right{
+  float: right;
+  width: 400px;
+}
