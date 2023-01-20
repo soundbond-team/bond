@@ -34,3 +34,8 @@ don't forget to install the requirements.txt: ```pip install -r requirements.txt
 ```npm start```
 
 make sure that your server is running on port 3000
+
+
+## Intérête pour l'utilisateur
+
+## Validation du modèle

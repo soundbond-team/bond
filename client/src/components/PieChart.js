@@ -75,9 +75,8 @@ const PieChart = () => {
   
   return (
     <div>
-      <h2>PolarArea Chart</h2>
+      <h2>PieChart</h2>
       <Pie data={finalData}/>
-      <h3> Description</h3>
       <p>This chart shows the difference in term of DigitNumber in the username in both fake and real accounts</p>
     </div>
   );

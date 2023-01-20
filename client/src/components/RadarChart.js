@@ -150,7 +150,7 @@ export const RadarChart = () => {
                         
                       ],
                       datasets: [{
-                        label: 'FakeAccounts Dataset',
+                        label: 'Fake accounts',
                         data: fakedataset,
                         fill: true,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -160,7 +160,7 @@ export const RadarChart = () => {
                         pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: 'rgb(255, 99, 132)'
                       }, {
-                        label: 'RealAccounts Dataset',
+                        label: 'Real accounts',
                         data:  realdataset,
                         fill: true,
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -174,7 +174,6 @@ export const RadarChart = () => {
                 }
             />
 
-          <h3>Description</h3>
           <p>The user can visualize the whole datasets where two kind of accounts can be differentiated: fake (pink) and real(blue), this chart discribe the distribution of the data, 4 properties were taken into count : user_media_count,user_biography_length ,fk_username_digit_count,username_length  </p>
           
         </div>

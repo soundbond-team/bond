@@ -86,7 +86,6 @@ const BarChart = () => {
     <div>
         <h2>BarChart</h2>
       <Bar data={finalData}/>
-      <h3>Description</h3>
       <p>In this Chart, the distribution of public and private accounts appears foreach accounts dataset : fake and real  </p>
       <br/>
       <br/>
