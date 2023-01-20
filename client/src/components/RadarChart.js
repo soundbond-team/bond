@@ -36,8 +36,6 @@ export const RadarChart = () => {
         //fakeAccounts datasets processing
 
           const fk_user_media_count = [];
-          const fk_user_follower_count = [];
-          const fk_user_following_count = [];
           const fk_user_biography_length = [];
           const fk_username_length=[];
           const fk_username_digit_count =[];
@@ -45,8 +43,6 @@ export const RadarChart = () => {
           
 
           var moy_fk_user_media_count;
-          var moy_fk_user_follower_count
-          var moy_fk_user_following_count;
           var moy_fk_user_biography_length;
           var moy_fk_username_length;
           var moy_fk_username_digit_count;
@@ -61,16 +57,6 @@ export const RadarChart = () => {
           
           res.forEach((user) => {
             if( user.is_fake !== 0)
-              fk_user_follower_count.push(user.user_follower_count)
-          });
-
-          res.forEach((user) => {
-            if( user.is_fake !== 0)
-              fk_user_following_count.push(user.user_following_count)
-          });
-
-          res.forEach((user) => {
-            if( user.is_fake !== 0)
               fk_user_biography_length.push(user.user_biography_length)
           });
 
@@ -79,16 +65,17 @@ export const RadarChart = () => {
               fk_username_digit_count.push(user.username_digit_count)
           });
 
+          res.forEach((user) => {
+            if( user.is_fake !== 0)
+              fk_username_length.push(user.username_length)
+          });
+
           moy_fk_user_media_count = ArrayAvg(fk_user_media_count);
-          moy_fk_user_follower_count = ArrayAvg(fk_user_follower_count);
-          moy_fk_user_following_count = ArrayAvg(fk_user_following_count);
           moy_fk_username_digit_count =ArrayAvg(fk_username_digit_count);
           moy_fk_username_length = ArrayAvg(fk_username_length);
           moy_fk_user_biography_length=ArrayAvg(fk_user_biography_length);
 
           fakeAccountsDataset.push(moy_fk_user_media_count);
-          fakeAccountsDataset.push(moy_fk_user_follower_count);
-          fakeAccountsDataset.push(moy_fk_user_following_count);
           fakeAccountsDataset.push(moy_fk_user_biography_length);
           fakeAccountsDataset.push(moy_fk_username_length);
           fakeAccountsDataset.push(moy_fk_username_digit_count);
@@ -97,8 +84,6 @@ export const RadarChart = () => {
         
           // RealAccounts datasets processing
           const rl_user_media_count = [];
-          const rl_user_follower_count = [];
-          const rl_user_following_count = [];
           const rl_user_biography_length = [];
           const rl_username_length=[];
           const rl_username_digit_count =[];
@@ -109,16 +94,6 @@ export const RadarChart = () => {
           res.forEach((user) => {
             if( user.is_fake === 0)
               rl_user_media_count.push(user.user_media_count);
-          });
-
-          res.forEach((user) => {
-            if( user.is_fake === 0)
-              rl_user_follower_count.push(user.user_follower_count)
-          });
-
-          res.forEach((user) => {
-            if( user.is_fake=== 0)
-              rl_user_following_count.push(user.user_following_count)
           });
 
           res.forEach((user) => {
@@ -138,23 +113,20 @@ export const RadarChart = () => {
 
 
           moy_fk_user_media_count=ArrayAvg(rl_user_media_count);
-          moy_fk_user_follower_count=ArrayAvg(rl_user_follower_count);
-          moy_fk_user_following_count=ArrayAvg(rl_user_following_count);
           moy_fk_username_digit_count=ArrayAvg(rl_username_digit_count);
           moy_fk_username_length=ArrayAvg(rl_username_length);
           moy_fk_user_biography_length=ArrayAvg(rl_user_biography_length);
 
 
           realAccountsDataset.push(moy_fk_user_media_count);
-          realAccountsDataset.push(moy_fk_user_follower_count);
-          realAccountsDataset.push(moy_fk_user_following_count);
           realAccountsDataset.push(moy_fk_user_biography_length);
           realAccountsDataset.push(moy_fk_username_length);
           realAccountsDataset.push(moy_fk_username_digit_count);
           
           setFakeDataset(fakeAccountsDataset);
           setRealDataset(realAccountsDataset);
-
+          console.log(fakeAccountsDataset);
+          console.log(realAccountsDataset);
         })
       };
       data();
@@ -172,8 +144,6 @@ export const RadarChart = () => {
                 data={{
                     labels: [
                         'user_media_count',
-                        'user_follower_count',
-                        'user_following_count',
                         'user_biography_length',
                         'username_length',
                         'username_digit_count'
