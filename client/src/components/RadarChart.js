@@ -3,7 +3,9 @@ import { Radar } from 'react-chartjs-2';
 import axios from "axios";
 
 export const RadarChart = () => {
-
+  const [fakedataset, setFakeDataset] = React.useState([]);
+  const [realdataset, setRealDataset] = React.useState([]);
+  
   const fakeAccountsDataset = [];
   const realAccountsDataset = [];
   
@@ -56,14 +58,14 @@ export const RadarChart = () => {
             if( user.is_fake !== 0)
               fk_user_media_count.push(user.user_media_count);
           });
-
+          
           res.forEach((user) => {
             if( user.is_fake !== 0)
               fk_user_follower_count.push(user.user_follower_count)
           });
 
           res.forEach((user) => {
-            if( user.is_fake!== 0)
+            if( user.is_fake !== 0)
               fk_user_following_count.push(user.user_following_count)
           });
 
@@ -75,11 +77,6 @@ export const RadarChart = () => {
           res.forEach((user) => {
             if( user.is_fake !== 0)
               fk_username_digit_count.push(user.username_digit_count)
-          });
-
-          res.forEach((user) => {
-            if( user.is_fake !== 0)
-              fk_username_length.push(user.username_length)
           });
 
           moy_fk_user_media_count = ArrayAvg(fk_user_media_count);
@@ -154,17 +151,15 @@ export const RadarChart = () => {
           realAccountsDataset.push(moy_fk_user_biography_length);
           realAccountsDataset.push(moy_fk_username_length);
           realAccountsDataset.push(moy_fk_username_digit_count);
-
-        
-
-    
-
+          
+          setFakeDataset(fakeAccountsDataset);
+          setRealDataset(realAccountsDataset);
 
         })
       };
       data();
 
-    });
+    }, []);
 
 
 
@@ -186,7 +181,7 @@ export const RadarChart = () => {
                       ],
                       datasets: [{
                         label: 'FakeAccounts Dataset',
-                        data: [ 3.535, 116.64, 1878.03, 11.98, 11.39, 1.635 ],
+                        data: fakedataset,
                         fill: true,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgb(255, 99, 132)',
@@ -196,7 +191,7 @@ export const RadarChart = () => {
                         pointHoverBorderColor: 'rgb(255, 99, 132)'
                       }, {
                         label: 'RealAccounts Dataset',
-                        data: [ 68.4738430583501, 419.8913480885312, 516.138832997988, 25.03420523138833, 11.070422535211268, 0.2665995975855131 ],
+                        data:  realdataset,
                         fill: true,
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         borderColor: 'rgb(54, 162, 235)',
