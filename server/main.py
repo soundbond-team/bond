@@ -19,7 +19,7 @@ class User(BaseModel):
 
 app = fastapi.FastAPI()
 
-users_json = json.load(open('./data/accountData.json'))
+users_json = json.load(open('../data/accountData.json'))
 users = list()
 for user in users_json:
     users.append(User(
