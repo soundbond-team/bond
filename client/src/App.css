@@ -37,24 +37,26 @@
   }
 }
 
-#visual{
+#visual {
   margin-left: 50px;
   margin-right: 50px;
 }
-#data{
+#data {
   text-align: center;
 }
-#graph{
+#graph {
   margin-left: 250px;
   width: 1000px;
 }
-#one,#three{
+#one,
+#three {
   float: left;
   width: 400px;
-  left: auto ;
+  left: auto;
 }
-#two,#four{
+#two,
+#four {
   float: right;
   width: 400px;
-  right:0%;
+  right: 0%;
 }

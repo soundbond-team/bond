@@ -44,10 +44,26 @@ function App() {
           </div>
           <br />
         </form>
-        <button class="btn btn-primary" onClick={handleChange} value="ScatterChart">ScatterChart</button>
-        <button class="btn btn-primary" onClick={handleChange} value="BarChart">BarChart</button>
-        <button class="btn btn-primary" onClick={handleChange} value="PieChart">PieChart</button>
-        <button class="btn btn-primary" onClick={handleChange} value="RadarChart">RadarChart</button>
+        <button
+          class="btn btn-primary"
+          onClick={handleChange}
+          value="ScatterChart"
+        >
+          ScatterChart
+        </button>
+        <button class="btn btn-primary" onClick={handleChange} value="BarChart">
+          BarChart
+        </button>
+        <button class="btn btn-primary" onClick={handleChange} value="PieChart">
+          PieChart
+        </button>
+        <button
+          class="btn btn-primary"
+          onClick={handleChange}
+          value="RadarChart"
+        >
+          RadarChart
+        </button>
       </div>
       <div id="graph">
         <div>
