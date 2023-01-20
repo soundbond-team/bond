@@ -1,17 +1,19 @@
 import React from "react";
 import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import axios from "axios";
 
 
 const BarChart = () => {
 
   const [dataset, setDataset] = React.useState([{}]);
-  const labels = ["Privé", "Public"];
+  const labels = ["Private accounts",'Public accounts'];
   let nbrPrive = 0;
   let nbrPublic = 0;
-  let nbrPhoto = 0;
-  let nbrNonPhoto = 0;
+  let nbrFauxPrive = 0;
+  let nbrFauxPublic = 0;
+  let nbrVraiPrive = 0;
+  let nbrVraiPublic = 0;
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
 
@@ -41,12 +43,18 @@ const BarChart = () => {
       if(user.user_is_private == 0){
           nbrPublic = nbrPublic+1;
       }
-      if(user.user_has_profil_pic == 1){
-        nbrPhoto= nbrPhoto + user.user_has_profil_pic+1;
+      if(user.is_fake == 1 && user.user_is_private == 1){
+        nbrFauxPrive = nbrFauxPrive+1;
       }
-      if(user.user_has_profil_pic== 0){
-        nbrNonPhoto = nbrNonPhoto + user.user_has_profil_pic+1;
+      if(user.is_fake == 1 && user.user_is_private == 0){
+        nbrFauxPublic = nbrFauxPublic+1;
       }
+    if(user.is_fake == 0 && user.user_is_private == 1){
+        nbrVraiPrive = nbrVraiPrive+1;
+    }
+    if(user.is_fake == 0 && user.user_is_private == 0){
+      nbrVraiPublic = nbrVraiPublic+1;
+    }
 
       
   })
@@ -54,12 +62,23 @@ const BarChart = () => {
     labels:labels,
     datasets: [
       {
-        label: "Nombre de profil",
-        backgroundColor: ["rgb(54, 162, 235)","rgb(255, 99, 132)"],
+        label: "Profil",
+        backgroundColor: ["rgb(255, 99, 132)"],
         borderColor: "rgb(255, 99, 132)",
-        data: [nbrPrive, nbrPublic]
+        data: [nbrPrive,nbrPublic],
       },
-
+      {
+        label: "Real accounts",
+        backgroundColor: ["#164382"],
+        borderColor: "rgb(255, 99, 132)",
+        data: [nbrVraiPrive,nbrVraiPublic],
+      },
+      {
+        label: "Fake accounts",
+        backgroundColor: ["rgb(54, 162, 235)"] ,
+        borderColor: "rgb(255, 99, 132)",
+        data: [nbrFauxPrive,nbrFauxPublic],
+      }
     ]
   };
   
