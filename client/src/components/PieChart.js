@@ -1,23 +1,74 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
-const labels = ["January", "February", "March", "April", "May", "June"];
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(0,0,255)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
+import axios from "axios";
+
+
 const PieChart = () => {
+
+  const [dataset, setDataset] = React.useState([{}]);
+  
+  let nbrFaux = 0;
+  let nbrVrai = 0;
+
+  const PYTHON_SERVER_URL = "http://localhost:8000"
+
+  React.useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
+        return res.data;
+      }
+      catch (err) {
+        console.log(err);
+      }
+    };
+    const data = () => {
+      getUsers().then((res) => {
+        setDataset(res);
+      })
+    };
+
+    console.log(dataset)
+    
+    data();
+  }, []);
+
+  dataset.map((user) =>{
+    if(user.is_fake == 1){
+      nbrFaux = nbrFaux+1;
+ }
+  if(user.is_fake == 0){
+      nbrVrai = nbrVrai+1;
+  }
+  })
+
+  console.log(nbrFaux)
+  console.log(nbrVrai)
+  console.log(dataset)
+
+  const finalData = {
+    labels: [
+      'Faux',
+      'Vrai',
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [nbrFaux, nbrVrai],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+      ],
+      hoverOffset: 4
+    }]
+  };
+  
   return (
     <div>
-      <Pie data={data} />
+      <h2>PieChart Chart</h2>
+      <Pie data={finalData}/>
     </div>
   );
 };
+
 export default PieChart;
