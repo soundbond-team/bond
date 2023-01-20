@@ -10,6 +10,7 @@ const PieChart = () => {
   
   let nbrFaux = 0;
   let nbrVrai = 0;
+  
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
 
@@ -46,7 +47,7 @@ const PieChart = () => {
       'Vrai',
     ],
     datasets: [{
-      label: 'My First Dataset',
+      label: 'Vrai/Faux comptes',
       data: [nbrFaux, nbrVrai],
       backgroundColor: [
         'rgb(255, 99, 132)',
@@ -58,8 +59,10 @@ const PieChart = () => {
   
   return (
     <div>
-      <h2>PieChart</h2>
+      <h2>PieChart Chart</h2>
+      <div style="height:300px; width:100%">
       <Pie data={finalData}/>
+      </div>
     </div>
   );
 };
