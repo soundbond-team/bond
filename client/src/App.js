@@ -8,12 +8,32 @@ import RadarChart from './components/RadarChart';
 import React from 'react';
 
 function App() {
+
   const [idUser, setIdUser] = React.useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIdUser(e.target.idUser.value);
   }
+
+  const menuItems = [
+    {
+      title: 'ScatterChart',
+      url: '/scatterchart',
+    },
+    {
+      title: 'BarChart',
+      url: '/barchart',
+    },
+    {
+      title: 'Piechart',
+      url: '/piechart',
+    },
+    {
+      title: 'RadarChart',
+      url: '/radarchart',
+    },
+  ];
 
   return (
     <div className="">
@@ -27,14 +47,15 @@ function App() {
         </form>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-expanded="false">
-            Sélectionner un graphe
+            Select a graph
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownmenu">
-              <a class="dropdown-item" href="#">ScatterChart</a>
-              <a class="dropdown-item" href="#">BarChart</a>
-              <a class="dropdown-item" href="#">PieChart</a>
-              <a class="dropdown-item" href="#">RadarChart</a>
-            </div>
+              {menuItems.map((menu, index) => {
+                return (
+                    <a class="dropdown-item" href={menu.url} key={index}>{menu.title}</a>
+                );
+              })}
+           </div>
         </div>
       </div >
       <div id="graph">
@@ -44,7 +65,6 @@ function App() {
           <br/>
           <div id="four"><RadarChart /></div>
           <div id="three"><PieChart /></div>
-          
         </div>
         <div>
           
