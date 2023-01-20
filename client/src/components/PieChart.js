@@ -61,22 +61,24 @@ const PieChart = () => {
   
       },
       {
-        type: 'pie',
-        label: ' AccountsCount',
-        data: [nbrFaux, nbrVrai],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-        ],
-        hoverOffset: 4
-      },
+      type: 'pie',
+      label: ' AccountsCount',
+      data: [nbrFaux, nbrVrai],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+      ],
+      hoverOffset: 4
+    },
   ]
   };
   
   return (
     <div>
-      <h2>PieChart Chart</h2>
+      <h2>PolarArea Chart</h2>
       <Pie data={finalData}/>
+      <h3> Description</h3>
+      <p>This chart shows the difference in term of DigitNumber in the username in both fake and real accounts</p>
     </div>
   );
 };
