@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "chart.js/auto";
-import { Pie } from "react-chartjs-2";
+import { Pie, Doughnut } from "react-chartjs-2";
 import { PolarArea } from "react-chartjs-2";
 import axios from "axios";
 
@@ -12,12 +12,12 @@ const PieChart = () => {
   let nbrFaux = 0;
   let nbrVrai = 0;
   let nbrNum = [];
-  let g1 = [];
-  let g2 = [];
-  let g3 = [];
-  let g4 = [];
-  let g5 = [];
-  let g6 = [];
+  let g1 = 0;
+  let g2 = 0;
+  let g3 = 0;
+  let g4 = 0;
+  let g5 = 0;
+  let g6 = 0;
   
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
@@ -51,28 +51,28 @@ const PieChart = () => {
     }
 
     if(user.username_digit_count == 0){
-      g1.push({x:user.username_digit_count})
+      g1 = g1+1;
     }
 
     if(user.username_digit_count > 0 && user.username_digit_count < 3){
-      g2.push({x:user.username_digit_count})
+      g2 = g2+1;
     }
 
     if(user.username_digit_count > 2 && user.username_digit_count < 5){
-      g3.push({x:user.username_digit_count})
+      g3 = g3+1;
     }
 
     if(user.username_digit_count > 5 && user.username_digit_count < 7){
-      g4.push({x:user.username_digit_count})
+      g4 = g4+1;
     }
 
     if(user.username_digit_count > 6 && user.username_digit_count < 9){
-      g5.push({x:user.username_digit_count})
+      g5 = g5+1;
 
     }
 
     if(user.username_digit_count > 8 && user.username_digit_count < 11){
-      g6.push({x:user.username_digit_count})
+      g6 = g6+1;
       
     }
 
@@ -89,16 +89,18 @@ const PieChart = () => {
 
   const finalData = {
     labels: [
-      'Red',
-      'Green',
-      'Yellow',
-      'Grey',
-      'Blue',
-      'Six',
+      '0 nbr',
+      '1-2 nbr',
+      '3-4 nbr',
+      '5-6 nbr',
+      '7-8 nbr',
+      '9-10 nbr',
+      'Vrai compte',
+      'Faux compte'
     ],
     datasets: [
       {
-        type: 'pie',
+        type: 'doughnut',
         label: ' AccountsCount',
         data: [g1, g2, g3, g4, g5, g6],
         backgroundColor: [
@@ -111,6 +113,17 @@ const PieChart = () => {
         ],
         hoverOffset: 4
       },
+      {
+        type:'pie',
+        label:'DigitNumber',
+        data:[nbrFaux, nbrVrai],
+        backgroundColor: [
+          'rgb(25, 30, 50)',
+          'rgba(2, 255, 128, .5)',
+        ],
+  
+      },
+      
   ]
   };
   
