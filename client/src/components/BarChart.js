@@ -63,19 +63,19 @@ const BarChart = () => {
     datasets: [
       {
         label: "Profil",
-        backgroundColor: ["rgb(255, 99, 132)"],
+        backgroundColor: ["#164382"],
         borderColor: "rgb(255, 99, 132)",
         data: [nbrPrive,nbrPublic],
       },
       {
         label: "Real accounts",
-        backgroundColor: ["#164382"],
+        backgroundColor: ["rgb(54, 162, 235)"],
         borderColor: "rgb(255, 99, 132)",
         data: [nbrVraiPrive,nbrVraiPublic],
       },
       {
         label: "Fake accounts",
-        backgroundColor: ["rgb(54, 162, 235)"] ,
+        backgroundColor: ["rgb(255, 99, 132)"] ,
         borderColor: "rgb(255, 99, 132)",
         data: [nbrFauxPrive,nbrFauxPublic],
       }
