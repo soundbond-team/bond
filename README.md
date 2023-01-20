@@ -23,7 +23,7 @@ Le jeu de données contient deux jeux de données:
 2. Scatter Chart -> user_follower_count/user_following_count
 3. Pie Chart -> fake account -> Cathy
 4. Bar Chart -> user_is_private -> Maguette
-5. Line chart -> user_follower_count/user_following_count/user_media_count
+
 
 ### start Server: 
 ```python main.py```
