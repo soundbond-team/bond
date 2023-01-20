@@ -42,10 +42,10 @@ export const RadarChart = () => {
 
           
 
-          var moy_fk_user_media_count;
-          var moy_fk_user_biography_length;
-          var moy_fk_username_length;
-          var moy_fk_username_digit_count;
+          let moy_fk_user_media_count;
+          let moy_fk_user_biography_length;
+          let moy_fk_username_length;
+          let moy_fk_username_digit_count;
 
 
           
@@ -173,6 +173,10 @@ export const RadarChart = () => {
                     }
                 }
             />
+
+          <h3>Desription</h3>
+          <p>The user can visualize the whole datasets where two kind of accounts can be differentiated: fake (pink) and real(blue), this chart discribe the distribution of the data, 4 properties were taken into count : user_media_count,user_biography_length ,fk_username_digit_count,username_length  </p>
+          
         </div>
     ); 
 }

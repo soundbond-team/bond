@@ -61,6 +61,9 @@ export const ScatterChart = (idUser) => {
             }}
             />
         )}
+        <h3>Desription</h3>
+        <p>This ScatterChart shows the relationship between 2 variables : user_follower_count and user_following_count in both real and fake accounts. The values of the user_follower_count variable appear on the horizontal axe, the vertical axe represents the values of the user_following_count variable </p>
+
         </div>
     );
     }

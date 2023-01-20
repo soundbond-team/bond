@@ -42,11 +42,11 @@ const PieChart = () => {
 
   const finalData = {
     labels: [
-      'Faux',
-      'Vrai',
+      'FakeAccountsCount',
+      'RealAccountsCount',
     ],
     datasets: [{
-      label: 'My First Dataset',
+      label: ' AccountsCount',
       data: [nbrFaux, nbrVrai],
       backgroundColor: [
         'rgb(255, 99, 132)',
@@ -60,6 +60,8 @@ const PieChart = () => {
     <div>
       <h2>PieChart</h2>
       <Pie data={finalData}/>
+      <h3>Desription</h3>
+      <p>The PieChart shows the distribution of the fake and the real accounts in the dataset </p>
     </div>
   );
 };

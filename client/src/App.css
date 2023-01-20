@@ -51,8 +51,10 @@
 #left{
   float: left;
   width: 400px;
+  display:grid;
 }
 #right{
   float: right;
   width: 400px;
+  display:grid;
 }
