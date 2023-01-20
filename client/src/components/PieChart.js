@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
+import { PolarArea } from "react-chartjs-2";
 import axios from "axios";
 
 
@@ -10,6 +11,7 @@ const PieChart = () => {
   
   let nbrFaux = 0;
   let nbrVrai = 0;
+  let nbrNum = [];
   
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
@@ -33,6 +35,8 @@ const PieChart = () => {
   }, []);
 
   dataset.map((user) =>{
+      nbrNum.push({x:user.username_digit_count})
+
     if(user.is_fake == 1){
       nbrFaux = nbrFaux+1;
  }
@@ -41,28 +45,38 @@ const PieChart = () => {
   }
   })
 
+
+
   const finalData = {
     labels: [
       'FakeAccountsCount',
       'RealAccountsCount',
     ],
-    datasets: [{
-      label: ' AccountsCount',
-      data: [nbrFaux, nbrVrai],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-      ],
-      hoverOffset: 4
-    }]
+    datasets: [
+      {
+        type:'polarArea',
+        label:'DigitNumber',
+        data:[30,80],
+        borderColor: 'rgb(255, 205, 86)',
+  
+      },
+      {
+        type: 'pie',
+        label: ' AccountsCount',
+        data: [nbrFaux, nbrVrai],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+        ],
+        hoverOffset: 4
+      },
+  ]
   };
   
   return (
     <div>
       <h2>PieChart Chart</h2>
-      <div style="height:300px; width:100%">
       <Pie data={finalData}/>
-      </div>
     </div>
   );
 };
