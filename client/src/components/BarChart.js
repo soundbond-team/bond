@@ -56,7 +56,7 @@ const BarChart = () => {
     <div>
         <h2>BarChart</h2>
       <Bar data={finalData}/>
-      <h3>Desription</h3>
+      <h3>Description</h3>
     </div>
   );
 };

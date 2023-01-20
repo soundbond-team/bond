@@ -31,10 +31,13 @@ function App() {
         <div>
           <div id="one"><ScatterChart idUser={idUser}/></div>
           <div id="two"><BarChart /></div>
-        </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <div>
-          <div id="three"><PieChart /></div>
+          <br/>
           <div id="four"><RadarChart /></div>
+          <div id="three"><PieChart /></div>
+          
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>
