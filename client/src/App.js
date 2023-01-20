@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import { Data } from "./utils/Data";
 import './App.css';
 import BarChart from "./components/BarChart";
-import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
 import ScatterChart from './components/ScatterChart';
 import RadarChart from './components/RadarChart';
