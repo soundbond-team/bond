@@ -11,13 +11,23 @@ const PieChart = () => {
   
   let nbrFaux = 0;
   let nbrVrai = 0;
-  let nbrNum = [];
-  let g1 = 0;
-  let g2 = 0;
-  let g3 = 0;
-  let g4 = 0;
-  let g5 = 0;
-  let g6 = 0;
+
+  let g1E1 = 0;
+  let g2E1 = 0;
+  let g3E1 = 0;
+  let g4E1 = 0;
+  let g5E1 = 0;
+  let g6E1 = 0;
+
+  let g1E2 = 0;
+  let g2E2 = 0;
+  let g3E2 = 0;
+  let g4E2 = 0;
+  let g5E2 = 0;
+  let g6E2 = 0;
+
+  let S1 = 0;
+  let S2 = 0;
   
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
@@ -51,58 +61,97 @@ const PieChart = () => {
     }
 
     if(user.username_digit_count == 0){
-      g1 = g1+1;
+      if(user.is_fake == 1){
+          g1E2 = g1E2+1;
+      }
+      else {
+        g1E1 = g1E1+1;
+      }
     }
 
     if(user.username_digit_count > 0 && user.username_digit_count < 3){
-      g2 = g2+1;
+      if(user.is_fake == 1){
+        g2E2 = g2E2+1;
+      }
+      else {
+        g2E1 = g2E1+1;
+      }
     }
 
     if(user.username_digit_count > 2 && user.username_digit_count < 5){
-      g3 = g3+1;
+      if(user.is_fake == 1){
+        g3E2 = g3E2+1;
+      }
+      else {
+        g3E1 = g3E1+1;
+      }
     }
 
     if(user.username_digit_count > 5 && user.username_digit_count < 7){
-      g4 = g4+1;
+      if(user.is_fake == 1){
+        g4E2 = g4E2+1;
+      }
+      else {
+        g4E1 = g4E1+1;
+      }
     }
 
     if(user.username_digit_count > 6 && user.username_digit_count < 9){
-      g5 = g5+1;
+      if(user.is_fake == 1){
+        g5E2 = g5E2+1;
+      }
+      else {
+        g5E1 = g5E1+1;
+      }
 
     }
 
     if(user.username_digit_count > 8 && user.username_digit_count < 11){
-      g6 = g6+1;
+      if(user.is_fake == 1){
+        g6E2 = g6E2+1;
+      }
+      else {
+        g6E1 = g6E1+1;
+      }
       
     }
 
   })
 
-  console.log(g1)
-  console.log(g2)
-  console.log(g3)
-  console.log(g4)
-  console.log(g5)
-  console.log(g6)
+  console.log(g1E1)
+  console.log(g1E2)
+  console.log(g2E1)
+  console.log(g2E2)
+  console.log(g6E1)
+  console.log(g6E2)
+
+  S1 = g1E1 + g2E1 + g3E1 + g4E1 + g5E1 + g6E1
+  S2 = g1E2 + g2E2 + g3E2 + g4E2 + g5E2 + g6E2
+  
+  console.log(S1)
+  console.log(S2)
 
 
 
   const finalData = {
     labels: [
-      '0 nbr',
-      '1-2 nbr',
-      '3-4 nbr',
-      '5-6 nbr',
-      '7-8 nbr',
-      '9-10 nbr',
-      'Vrai compte',
-      'Faux compte'
+      'faux',
+      'vrai',
+      'S1',
+      'S2'
     ],
     datasets: [
       {
         type: 'doughnut',
         label: ' AccountsCount',
-        data: [g1, g2, g3, g4, g5, g6],
+        data: [nbrFaux, nbrVrai],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      {
+        type: 'pie',
+        label: ' Vraix/faux compte',
+        data: [nbrFaux, nbrVrai],
         backgroundColor: [
           'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
@@ -113,17 +162,30 @@ const PieChart = () => {
         ],
         hoverOffset: 4
       },
+        ],
+        hoverOffset: 4
+      },
+   
       {
-        type:'pie',
-        label:'DigitNumber',
-        data:[nbrFaux, nbrVrai],
+        type:'doughnut',
+        label:'DigitNumber sachant Vrai/faux',
+        data:[S2,S1],
         backgroundColor: [
           'rgb(25, 30, 50)',
           'rgba(2, 255, 128, .5)',
         ],
   
       },
-      
+      {
+        type:'doughnut',
+        label:'DigitNumber sachant Vrai',
+        data:[S2,S1],
+        backgroundColor: [
+          'rgb(25, 30, 50)',
+          'rgba(2, 255, 128, .5)',
+        ],
+  
+      },
   ]
   };
   
