@@ -28,9 +28,6 @@ const PieChart = () => {
         setDataset(res);
       })
     };
-
-    console.log(dataset)
-    
     data();
   }, []);
 
@@ -42,10 +39,6 @@ const PieChart = () => {
       nbrVrai = nbrVrai+1;
   }
   })
-
-  console.log(nbrFaux)
-  console.log(nbrVrai)
-  console.log(dataset)
 
   const finalData = {
     labels: [
