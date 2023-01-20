@@ -46,15 +46,15 @@
 }
 #graph{
   margin-left: 250px;
-  width: 900px;
+  width: 1000px;
 }
-#left{
+#one,#three{
   float: left;
   width: 400px;
-  display:grid;
+  left: auto ;
 }
-#right{
+#two,#four{
   float: right;
   width: 400px;
-  display:grid;
+  right:0%;
 }
