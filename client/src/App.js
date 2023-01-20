@@ -44,6 +44,7 @@ function App() {
           </div>
           <br />
         </form>
+        <div>Circule entre les différentes visualisation de données avec les boutons suivants:</div>
         <button
           class="btn btn-primary"
           onClick={handleChange}

@@ -37,21 +37,21 @@ export const ScatterChart = (idUser) => {
         });
         setDataset([
           {
-            label: "Real account",
+            label: "Compte vérifié",
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgb(54, 162, 170)",
-            data: true_follower_following,
+            data: true_follower_following,          
             pointBackgroundColor: function (context) {
               let color = "yellow";
               if (
-                !(context.dataset.data[context.dataIndex].id == idUser.idUser)
+                !(context.dataset.data[context.dataIndex].id === idUser.idUser)
               )
                 color = "rgba(54, 162, 235, 0.2)";
               return color;
             },
           },
           {
-            label: "Fake account",
+            label: "Faux compte",
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             borderColor: "rgb(255, 99, 132)",
             data: false_follower_following,
@@ -73,11 +73,9 @@ export const ScatterChart = (idUser) => {
         />
       )}
       <p>
-        This ScatterChart shows the relationship between 2 variables :
-        user_follower_count and user_following_count in both real and fake
-        accounts. The values of the user_follower_count variable appear on the
-        horizontal axe, the vertical axe represents the values of the
-        user_following_count variable{" "}
+        Le ScatterChart représente les utilsateurs en fonction du nombre d'utilisateurs qui les suivent et le nombre d'utilisateurs qu'ils suivent.
+        Le nombre d'utilisateurs qui les suivent et le nombre d'utilisateurs suivis sont représentés respectivement par les axes x et y.
+        Vous pouvez, en indiquant l'id d'un utilisateur, le mettre en évidence en cliquant sur le bouton "Visualiser", vous verrez le point se colorer en jaune.
       </p>
     </div>
   );

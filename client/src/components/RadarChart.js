@@ -125,14 +125,14 @@ export const RadarChart = () => {
         datasetIdKey="id"
         data={{
           labels: [
-            "user_media_count",
-            "user_biography_length",
-            "username_length",
-            "username_digit_count",
+            "Nombre de posts",
+            "Longueur de biographie",
+            "Longueur du nom d'utilisateur",
+            "Nombre de chiffres dans le nom d'utilisateur",
           ],
           datasets: [
             {
-              label: "Fake accounts",
+              label: "Faux comptes",
               data: fakedataset,
               fill: true,
               backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -143,7 +143,7 @@ export const RadarChart = () => {
               pointHoverBorderColor: "rgb(255, 99, 132)",
             },
             {
-              label: "Real accounts",
+              label: "Comptes vérifiés",
               data: realdataset,
               fill: true,
               backgroundColor: "rgba(54, 162, 235, 0.2)",
@@ -158,11 +158,12 @@ export const RadarChart = () => {
       />
 
       <p>
-        The user can visualize the whole datasets where two kind of accounts can
-        be differentiated: fake (pink) and real(blue), this chart discribe the
-        distribution of the data, 4 properties were taken into count :
-        user_media_count,user_biography_length
-        ,fk_username_digit_count,username_length{" "}
+        Le RadarChart est un graphique qui permet de visualiser les données de
+        manière circulaire, il permet de comparer les données entre elles, ici
+        on a comparé les données des comptes vérifiés et des comptes non
+        vérifiés en fonction de 4 caractéristiques : le nombre de posts, la 
+        longueur de la biographie, la longueur du nom d'utilisateur et le nombre
+        de chiffres dans le nom d'utilisateur.
       </p>
     </div>
   );
