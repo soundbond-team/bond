@@ -61,15 +61,15 @@ const PieChart = () => {
   
       },
       {
-        type: 'pie',
-        label: ' AccountsCount',
-        data: [nbrFaux, nbrVrai],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-        ],
-        hoverOffset: 4
-      },
+      type: 'pie',
+      label: ' AccountsCount',
+      data: [nbrFaux, nbrVrai],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+      ],
+      hoverOffset: 4
+    },
   ]
   };
   
