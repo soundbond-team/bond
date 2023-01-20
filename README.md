@@ -19,11 +19,11 @@ Le jeu de données contient deux jeux de données:
 9. `is_fake` - True, if account is a spam/fake account, False otherwise
 
 ### Représentation des données
-1. Radar chart -> Fake account or not in function of user_media_count, user_follower_count, user_following_count, user_biography_length, username_length, username_digit_count -> Hajar
-2. Scatter Chart -> user_follower_count/user_following_count
-3. Pie Chart -> fake account -> Cathy
-4. Bar Chart -> user_is_private -> Maguette
-5. Line chart -> user_follower_count/user_following_count/user_media_count
+1. Radar chart -> this chart discribe the distribution of the data into user_media_count,user_biography_length ,fk_username_digit_count,username_length.
+2. Scatter Chart -> the relationship between user_follower_count and user_following_count in both real and fake accounts.
+3. Pie Chart -> this chart shows the difference in term of DigitNumber in the username in both fake and real accounts.
+4. Bar Chart ->  the distribution of public and private accounts appears foreach accounts dataset : fake and real.
+
 
 ### start Server: 
 ```python main.py```
@@ -34,3 +34,8 @@ don't forget to install the requirements.txt: ```pip install -r requirements.txt
 ```npm start```
 
 make sure that your server is running on port 3000
+
+
+## Intérête pour l'utilisateur
+
+## Validation du modèle

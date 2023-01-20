@@ -4,11 +4,9 @@ import { Pie, Doughnut } from "react-chartjs-2";
 import { PolarArea } from "react-chartjs-2";
 import axios from "axios";
 
-
 const PieChart = () => {
-
   const [dataset, setDataset] = React.useState([{}]);
-  
+
   let nbrFaux = 0;
   let nbrVrai = 0;
 
@@ -37,15 +35,14 @@ const PieChart = () => {
       try {
         const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
         return res.data;
-      }
-      catch (err) {
+      } catch (err) {
         console.log(err);
       }
     };
     const data = () => {
       getUsers().then((res) => {
         setDataset(res);
-      })
+      });
     };
     data();
   }, []);
@@ -204,7 +201,7 @@ const PieChart = () => {
       }],
     
   };
-  
+
   return (
     <div>
       <h2>Double Doughnut Chart</h2>

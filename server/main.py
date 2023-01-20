@@ -7,6 +7,7 @@ import json
 
 
 class User(BaseModel):
+    id : int
     user_media_count : int
     user_follower_count : int
     user_following_count : int
@@ -19,10 +20,11 @@ class User(BaseModel):
 
 app = fastapi.FastAPI()
 
-users_json = json.load(open('../data/accountData.json'))
+users_json = json.load(open('./data/accountData.json'))
 users = list()
 for user in users_json:
     users.append(User(
+    id=user['id'],
     user_media_count=user['userMediaCount'],
     user_follower_count=user['userFollowerCount'],
     user_following_count=user['userFollowingCount'],
