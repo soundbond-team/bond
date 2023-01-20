@@ -138,7 +138,7 @@ export const RadarChart = () => {
     
     return (
         <div >
-            <h2>RadarChart Chart</h2>
+            <h2>RadarChart</h2>
             <Radar
                 datasetIdKey='id'
                 data={{

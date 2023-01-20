@@ -54,7 +54,7 @@ const BarChart = () => {
   
   return (
     <div>
-        <h2>BarChart Chart</h2>
+        <h2>BarChart</h2>
       <Bar data={finalData}/>
     </div>
   );
