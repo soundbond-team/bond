@@ -40,14 +40,17 @@ export const ScatterChart = (idUser) => {
             label: "Compte vérifié",
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgb(54, 162, 170)",
-            data: true_follower_following,          
+            data: true_follower_following,
             pointBackgroundColor: function (context) {
-              let color = "yellow";
+              console.log(
+                context.dataset.data[context.dataIndex].id.toString()
+              );
               if (
-                !(context.dataset.data[context.dataIndex].id === idUser.idUser)
+                context.dataset.data[context.dataIndex].id.toString() ===
+                idUser.idUser
               )
-                color = "rgba(54, 162, 235, 0.2)";
-              return color;
+                return "yellow";
+              return "rgba(54, 162, 235, 0.2)";
             },
           },
           {
@@ -65,6 +68,15 @@ export const ScatterChart = (idUser) => {
   return (
     <div>
       <h2>ScatterChart</h2>
+      <p>
+        Le ScatterChart représente les utilsateurs en fonction du nombre
+        d'utilisateurs qui les suivent et le nombre d'utilisateurs qu'ils
+        suivent. Le nombre d'utilisateurs qui les suivent et le nombre
+        d'utilisateurs suivis sont représentés respectivement par les axes x et
+        y. Vous pouvez, en indiquant l'id d'un utilisateur, le mettre en
+        évidence en cliquant sur le bouton "Visualiser", vous verrez le point se
+        colorer en jaune.
+      </p>
       {dataset.length > 0 && (
         <Scatter
           data={{
@@ -72,11 +84,6 @@ export const ScatterChart = (idUser) => {
           }}
         />
       )}
-      <p>
-        Le ScatterChart représente les utilsateurs en fonction du nombre d'utilisateurs qui les suivent et le nombre d'utilisateurs qu'ils suivent.
-        Le nombre d'utilisateurs qui les suivent et le nombre d'utilisateurs suivis sont représentés respectivement par les axes x et y.
-        Vous pouvez, en indiquant l'id d'un utilisateur, le mettre en évidence en cliquant sur le bouton "Visualiser", vous verrez le point se colorer en jaune.
-      </p>
     </div>
   );
 };

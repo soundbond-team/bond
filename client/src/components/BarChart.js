@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar} from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import axios from "axios";
 
 const BarChart = () => {
@@ -73,10 +73,11 @@ const BarChart = () => {
   return (
     <div>
       <h2>BarChart</h2>
-      <Bar data={finalData} />
       <p>
-        Le BarChart indique la distribution des comptes privés et publics pour les faux comptes et les comptes vérifiés.
+        Le BarChart indique la distribution des comptes privés et publics pour
+        les faux comptes et les comptes vérifiés.
       </p>
+      <Bar data={finalData} />
       <br />
       <br />
     </div>

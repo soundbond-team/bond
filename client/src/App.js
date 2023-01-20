@@ -1,6 +1,6 @@
 import "./App.css";
 import BarChart from "./components/BarChart";
-import PieChart from "./components/PieChart";
+import DoughnutChart from "./components/DoughnutChart";
 import ScatterChart from "./components/ScatterChart";
 import RadarChart from "./components/RadarChart";
 import React from "react";
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="">
       <div id="visual">
-        <h2 id="data">Data visualisation </h2>
+        <h2 id="data">Visualisation de données </h2>
         <form
           onSubmit={(e) => {
             handleSubmit(e);
@@ -44,7 +44,10 @@ function App() {
           </div>
           <br />
         </form>
-        <div>Circule entre les différentes visualisation de données avec les boutons suivants:</div>
+        <div>
+          Circulez entre les différentes visualisation de données avec les
+          boutons suivants:
+        </div>
         <button
           class="btn btn-primary"
           onClick={handleChange}
@@ -55,8 +58,12 @@ function App() {
         <button class="btn btn-primary" onClick={handleChange} value="BarChart">
           BarChart
         </button>
-        <button class="btn btn-primary" onClick={handleChange} value="PieChart">
-          PieChart
+        <button
+          class="btn btn-primary"
+          onClick={handleChange}
+          value="DoughnutChart"
+        >
+          DoughnutChart
         </button>
         <button
           class="btn btn-primary"
@@ -70,7 +77,7 @@ function App() {
         <div>
           {selectedGraph === "ScatterChart" && <ScatterChart idUser={idUser} />}
           {selectedGraph === "BarChart" && <BarChart />}
-          {selectedGraph === "PieChart" && <PieChart />}
+          {selectedGraph === "DoughnutChart" && <DoughnutChart />}
           {selectedGraph === "RadarChart" && <RadarChart />}
         </div>
         <div></div>
