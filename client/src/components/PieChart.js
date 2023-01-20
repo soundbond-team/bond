@@ -43,11 +43,11 @@ const PieChart = () => {
 
   const finalData = {
     labels: [
-      'Faux',
-      'Vrai',
+      'FakeAccountsCount',
+      'RealAccountsCount',
     ],
     datasets: [{
-      label: 'Vrai/Faux comptes',
+      label: ' AccountsCount',
       data: [nbrFaux, nbrVrai],
       backgroundColor: [
         'rgb(255, 99, 132)',

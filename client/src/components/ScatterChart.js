@@ -22,30 +22,29 @@ export const ScatterChart = (idUser) => {
 
       const data = () => {
         getUsers().then((res) => {
-          const follower_following = [];
+          const false_follower_following = [];
+          const true_follower_following = [];
           res.forEach((user) => {
-            follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
+            if (user['is_fake'] === 0)
+              true_follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
+            else
+              false_follower_following.push({x: user['user_follower_count'], y: user['user_following_count']})
           });
-          if (idUser.idUser == null) {
-            setDataset([
-              {
-                label: "Follower/Following",
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)",
-                data: follower_following,
-              },
-            ])
-          }
-          else {
-            setDataset([
-              {
-                label: "Follower/Following",
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)",
-                data: follower_following,
-              },
-            ])
-          }
+          setDataset([
+            {
+              label: "Verified user",
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgb(54, 162, 235)',
+              data: true_follower_following,
+            },
+            {
+              label: "Fake user",
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: false_follower_following,
+            }
+          ])
+          
         })
       };
       data();
@@ -61,6 +60,9 @@ export const ScatterChart = (idUser) => {
             }}
             />
         )}
+        <h3>Desription</h3>
+        <p>This ScatterChart shows the relationship between 2 variables : user_follower_count and user_following_count in both real and fake accounts. The values of the user_follower_count variable appear on the horizontal axe, the vertical axe represents the values of the user_following_count variable </p>
+
         </div>
     );
     }

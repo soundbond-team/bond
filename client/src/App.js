@@ -29,12 +29,12 @@ function App() {
       </div >
       <div id="graph">
         <div>
-          <div id="left"><ScatterChart idUser={idUser}/></div>
-          <div id="right"><BarChart /></div>
+          <div id="one"><ScatterChart idUser={idUser}/></div>
+          <div id="two"><BarChart /></div>
         </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <div>
-          <div id="left"><PieChart /></div>
-          <div id="right"><RadarChart /></div>
+          <div id="three"><PieChart /></div>
+          <div id="four"><RadarChart /></div>
         </div>
       </div>
     </div>
