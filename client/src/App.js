@@ -17,15 +17,25 @@ function App() {
 
   return (
     <div className="">
-      <div>
+      <div id="visual">
         <h2 id="data">Data visualisation </h2>
-        <form id="visual" onSubmit={(e) => {handleSubmit(e)}}>
+        <form onSubmit={(e) => {handleSubmit(e)}}>
         <div className="mb-3">
           <label for="exampleInputPassword1" className="form-label">Saississez l'id d'un utilisateur</label>
           <input type="text" className="form-control" id="idUser" name="idUser" />
         </div><br/>
-        <button type="submit" class="btn btn-primary">Visualiser</button>
         </form>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-expanded="false">
+            Sélectionner un graphe
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownmenu">
+              <a class="dropdown-item" href="#">ScatterChart</a>
+              <a class="dropdown-item" href="#">BarChart</a>
+              <a class="dropdown-item" href="#">PieChart</a>
+              <a class="dropdown-item" href="#">RadarChart</a>
+            </div>
+        </div>
       </div >
       <div id="graph">
         <div>

@@ -10,6 +10,8 @@ const BarChart = () => {
   const labels = ["Privé", "Public"];
   let nbrPrive = 0;
   let nbrPublic = 0;
+  let nbrPhoto = 0;
+  let nbrNonPhoto = 0;
 
   const PYTHON_SERVER_URL = "http://localhost:8000"
 
@@ -39,17 +41,26 @@ const BarChart = () => {
       if(user.user_is_private == 0){
           nbrPublic = nbrPublic+1;
       }
+      if(user.user_has_profil_pic == 1){
+        nbrPhoto= nbrPhoto + user.user_has_profil_pic+1;
+      }
+      if(user.user_has_profil_pic== 0){
+        nbrNonPhoto = nbrNonPhoto + user.user_has_profil_pic+1;
+      }
+
+      
   })
   const finalData = {
-    labels: labels,
+    labels:labels,
     datasets: [
       {
         label: "Nombre de profil",
-        backgroundColor: ["#CD853F","rgb(255, 99, 132)"],
+        backgroundColor: ["rgb(54, 162, 235)","rgb(255, 99, 132)"],
         borderColor: "rgb(255, 99, 132)",
         data: [nbrPrive, nbrPublic]
       },
-    ],
+
+    ]
   };
   
   return (
