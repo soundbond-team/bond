@@ -52,5 +52,11 @@ app.add_middleware(
 def read_users() -> List[User]:
     return users
 
+@app.get("/users/{user_id}/is_fake")    
+def read_user(user_id: int) -> bool:
+    # return prediction(user_id)
+    return True 
+    # return False
+
 if __name__ == "__main__":
     uvicorn.run('main:app', host="localhost", port=8000, reload=True)
