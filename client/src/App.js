@@ -60,11 +60,11 @@ function App() {
               id="idUser"
               name="idUser"
             /><br/>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" id="BoutonVerif">
               Vérifier
             </button>
-            {statusUser === true && <BsCheckCircleFill/>}
-            {statusUser === false && <BsCloudRainHeavy/>}
+            {statusUser === true && <BsCheckCircleFill  id="circleFill" />}
+            {statusUser === false && <BsCloudRainHeavy id="rainHeavy" />}
           </div>
           <br />
         </form>

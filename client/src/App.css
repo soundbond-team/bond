@@ -60,3 +60,12 @@
   width: 400px;
   right: 0%;
 }
+#BoutonVerif{
+  margin-right: 10px;
+}
+#circleFill{
+  color:green;
+}
+#rainHeavy{
+  color: red;
+}
