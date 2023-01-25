@@ -4,6 +4,7 @@ import uvicorn
 from pydantic import BaseModel
 from typing import List
 import json
+from models import prediction
 
 
 class User(BaseModel):
@@ -54,9 +55,7 @@ def read_users() -> List[User]:
 
 @app.get("/users/{user_id}/is_fake")    
 def read_user(user_id: int) -> bool:
-    # return prediction(user_id)
-    return True 
-    # return False
+    return prediction(user_id)
 
 if __name__ == "__main__":
     uvicorn.run('main:app', host="localhost", port=8000, reload=True)
