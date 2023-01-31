@@ -12,5 +12,12 @@ def transform_json_to_dataframe(dataset_path):
 
 data = transform_json_to_dataframe(dataset_path)
 
-print(data)
+#cleaning data
+def clean_data(data):
+    data = data.dropna()
+    return data
+
+data_clean = clean_data(data)
+
+print(data_clean)
 
