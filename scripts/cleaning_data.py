@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 
-dataset_path = "./data/accountData.json"
+dataset_path = "../data/accountData.json"
 
 #transform json to dataframe
 def transform_json_to_dataframe(dataset_path):
@@ -15,6 +15,7 @@ data = transform_json_to_dataframe(dataset_path)
 #cleaning data
 def clean_data(data):
     data = data.dropna() #dropna supprime les lignes avec des valeurs manquantes
+    data = data.drop_duplicates()
     return data
 
 data_clean = clean_data(data)
@@ -22,10 +23,10 @@ data_clean = clean_data(data)
 print(data_clean)
 
 #export data cleaning to json
-def export_data_to_json_orient(data_clean):
-    data_clean.to_json("./data/accountData_clean.json", orient="records")
+def export_data_to_json(data_clean):
+    data_clean.to_json("../data/accountData_clean.json", orient="records")
 
-export_data_to_json_orient(data_clean)
+export_data_to_json(data_clean)
 
 #compare data before and after cleaning
 def compare_data(data, data_clean):
