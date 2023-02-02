@@ -5,7 +5,7 @@ import ScatterChart from "./components/ScatterChart";
 import RadarChart from "./components/RadarChart";
 import React from "react";
 import axios from "axios";
-import { BsCheckCircleFill, BsXOctagonFill } from "react-icons/bs";
+import { BsAlarm, BsCheckCircleFill, BsXOctagonFill } from "react-icons/bs";
 
 const PYTHON_SERVER_URL = "http://localhost:8000";
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="">
       <div id="visual">
-        <h2 id="data">Bond : réseau social de SoundBond</h2>
+        <h2 id="data">Bond, James Bond</h2>
         <form
           onSubmit={(e) => {
             handleSubmit(e);
