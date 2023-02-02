@@ -2,21 +2,19 @@ import React from "react";
 import { Scatter } from "react-chartjs-2";
 import axios from "axios";
 
-export const ScatterChart = (idUser) => {
+export const ScatterChart = () => {
   const [dataset, setDataset] = React.useState([{}]);
   const PYTHON_SERVER_URL = "http://localhost:8000";
 
   React.useEffect(() => {
-    console.log(idUser.idUser);
     const getUsers = async () => {
       try {
-        const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
+        const res = await axios.get(`${PYTHON_SERVER_URL}/users/with_prediction`);
         return res.data;
       } catch (err) {
         console.log(err);
       }
     };
-
     const data = () => {
       getUsers().then((res) => {
         const false_follower_following = [];
@@ -41,17 +39,6 @@ export const ScatterChart = (idUser) => {
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgb(54, 162, 170)",
             data: true_follower_following,
-            pointBackgroundColor: function (context) {
-              console.log(
-                context.dataset.data[context.dataIndex].id.toString()
-              );
-              if (
-                context.dataset.data[context.dataIndex].id.toString() ===
-                idUser.idUser
-              )
-                return "yellow";
-              return "rgba(54, 162, 235, 0.2)";
-            },
           },
           {
             label: "Faux compte",
@@ -62,8 +49,9 @@ export const ScatterChart = (idUser) => {
         ]);
       });
     };
+
     data();
-  }, [idUser]);
+  }, []);
 
   return (
     <div>

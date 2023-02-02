@@ -5,12 +5,12 @@ import ScatterChart from "./components/ScatterChart";
 import RadarChart from "./components/RadarChart";
 import React from "react";
 import axios from "axios";
-import { BsAlarm, BsCheckCircleFill, BsXOctagonFill } from "react-icons/bs";
+import { BsCheckCircleFill, BsXOctagonFill } from "react-icons/bs";
 
 const PYTHON_SERVER_URL = "http://localhost:8000";
 
 function App() {
-  const [idUser, setIdUser] = React.useState(false);
+  const [idUser, setIdUser] = React.useState(null);
   const [statusUser, setStatusUser] = React.useState(null);
   const [selectedGraph, setGraph] = React.useState();
 
@@ -65,6 +65,7 @@ function App() {
             </button>
             {statusUser === false && <BsCheckCircleFill  size="20px" id="circleFill"/>}
             {statusUser === true && <BsXOctagonFill size="20px" id="rainHeavy" />}
+            {statusUser === undefined && <p>Aucun utilisateur entré ou utilisateur inexistant</p>}
           </div>
           <br />
         </form>
@@ -99,7 +100,7 @@ function App() {
       </div>
       <div id="graph">
         <div>
-          {selectedGraph === "ScatterChart" && <ScatterChart idUser={idUser} />}
+          {selectedGraph === "ScatterChart" && <ScatterChart />}
           {selectedGraph === "BarChart" && <BarChart />}
           {selectedGraph === "DoughnutChart" && <DoughnutChart />}
           {selectedGraph === "RadarChart" && <RadarChart />}

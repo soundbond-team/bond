@@ -14,7 +14,7 @@ export const RadarChart = () => {
   React.useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await axios.get(`${PYTHON_SERVER_URL}/users`);
+        const res = await axios.get(`${PYTHON_SERVER_URL}/users/with_prediction`);
         return res.data;
       } catch (err) {
         console.log(err);
