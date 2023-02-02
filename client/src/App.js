@@ -69,8 +69,8 @@ function App() {
           <br />
         </form>
         <div>
-          Circulez entre les différentes visualisation de données avec les
-          boutons suivants:
+          <h5>Circulez entre les différentes visualisation de données avec les
+          boutons suivants:</h5>
         </div>
         <button
           class="btn btn-primary"
