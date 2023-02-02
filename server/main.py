@@ -66,7 +66,7 @@ rf_model.fit(X_train, Y_train)
 rf_pred = rf_model.predict(X_test)
 
 
-def rf_prediction(user: pd.DataFrame):
+def rf_prediction(user: pd.DataFrame) -> int:
     return rf_model.predict(user)
     
 
