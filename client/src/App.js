@@ -63,8 +63,8 @@ function App() {
             <button type="submit" class="btn btn-primary" id="BoutonVerif">
               Vérifier
             </button>
-            {statusUser === true && <BsCheckCircleFill  size="20px" id="circleFill"/>}
-            {statusUser === false && <BsXOctagonFill size="20px" id="rainHeavy" />}
+            {statusUser === false && <BsCheckCircleFill  size="20px" id="circleFill"/>}
+            {statusUser === true && <BsXOctagonFill size="20px" id="rainHeavy" />}
           </div>
           <br />
         </form>
