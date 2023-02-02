@@ -5,7 +5,7 @@ import ScatterChart from "./components/ScatterChart";
 import RadarChart from "./components/RadarChart";
 import React from "react";
 import axios from "axios";
-import { BsCheckCircleFill, BsCloudRainHeavy } from "react-icons/bs";
+import { BsCheckCircleFill, BsXOctagonFill } from "react-icons/bs";
 
 const PYTHON_SERVER_URL = "http://localhost:8000";
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="">
       <div id="visual">
-        <h2 id="data">James bond</h2>
+        <h2 id="data">Bond : réseau social de SoundBond</h2>
         <form
           onSubmit={(e) => {
             handleSubmit(e);
@@ -63,8 +63,8 @@ function App() {
             <button type="submit" class="btn btn-primary" id="BoutonVerif">
               Vérifier
             </button>
-            {statusUser === true && <BsCheckCircleFill  id="circleFill" />}
-            {statusUser === false && <BsCloudRainHeavy id="rainHeavy" />}
+            {statusUser === true && <BsCheckCircleFill  size="20px" id="circleFill"/>}
+            {statusUser === false && <BsXOctagonFill size="20px" id="rainHeavy" />}
           </div>
           <br />
         </form>
