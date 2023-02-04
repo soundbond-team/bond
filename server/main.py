@@ -66,24 +66,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-data = pd.read_json('../data/accountData.json')
-
-Y = data.isFake
-X = data.drop(['isFake', 'id'], axis=1)
-
-#Subdivision des données en données train et test avec la fonction train_test_split du module model_selection de pandas
-from sklearn.model_selection import train_test_split
-
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=242)
-
-# import random forest classifier from scikit-learn library
-from sklearn.ensemble import RandomForestClassifier
-
-rf_model = RandomForestClassifier()
-rf_model.fit(X_train, Y_train)
-
-rf_pred = rf_model.predict(X_test)
-
+# load the model from rf_model.pkl
+rf_model = pd.read_pickle('../rf_model.pkl')
 
 def rf_prediction(user: pd.DataFrame) -> int:
     return rf_model.predict(user)
@@ -103,7 +87,7 @@ def read_user(user_id: int) -> Union[bool, str]:
     user = users_df[users_df['id'] == user_id]
     if user.empty:
         raise fastapi.HTTPException(status_code=404, detail="User not found")
-    user = user.drop(['id','isFake'], axis=1)
+    user = user.drop(['isFake','id','userIsPrivate'], axis=1)
     return True if rf_prediction(user) == 1 else False
 
 if __name__ == "__main__":
